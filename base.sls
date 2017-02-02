@@ -10,7 +10,7 @@ base:
       - htop
       - python
       - python3
-      - vim-enhanced
+      - vim
       - nano
       - mosh
-      - ack
+      - ack-grep
