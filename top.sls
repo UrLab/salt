@@ -2,3 +2,4 @@ base:
   '*':
     - base
     - user
+    - tinc
