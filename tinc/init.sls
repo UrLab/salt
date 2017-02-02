@@ -50,7 +50,7 @@ tinc:
     - user: root
     - group: root
     - mode: 600
-    - config: config
+    - config: {{ config }}
 {% endfor %}
 
 
