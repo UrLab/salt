@@ -11,7 +11,7 @@ tinc:
     - user: root
     - group: root
     - mode: 700
-    - mkdirs: True
+    - makedirs: True
 
 /etc/tinc/urlab/tinc.conf:
   file.managed:
