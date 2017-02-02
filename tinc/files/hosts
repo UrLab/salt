@@ -1,4 +1,4 @@
 Address = {{config['address']}}
 Port = 8000
 
-{{config['public']}}
+{{config['public'] | yaml_encode }}
