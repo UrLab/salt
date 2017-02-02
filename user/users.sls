@@ -1,30 +1,26 @@
 
 {% set users = pillar.get('users', []) %}
-{% set userPresent = grains.get('users', '') %}
 
-
-{% for user in users.items() %}
-{% if user['username'] in userPresent %}
-user_{{ user['username'] }}:
+{% for username, user in users.items() %}
+user_{{ username }}:
   user.present:
-    - name: {{ user['username'] }}
-    - shell: /bin/bash
-    - home: /home/{{ user['username'] }}
+    - name: {{ username }}
+    - shell: {{ user.get('shell', '/bin/bash') }}
+    - home: /home/{{ username }}
     - uid: {{ user['uid'] }}
     - gid_from_name: True
     - password: {{ user['password'] }} 
+    - enforce_password: False
 
-sshkey_{{ user['username'] }}:
+sshkey_{{ username }}:
   file.managed:
-    - name: /home/{{ user['username'] }}/.ssh/authorized_keys
+    - name: /home/{{ username }}/.ssh/authorized_keys
     - replace: False
-    - user: {{ user['username'] }}
-    - group: {{ user['username'] }}
+    - user: {{ username }}
+    - group: {{ username }}
     - mode: 700
     - makedirs: True
     - dir_mode: 700
-
-{% endif %}
 {% endfor %}
 
 
