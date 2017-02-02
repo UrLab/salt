@@ -1,5 +1,9 @@
 [network]
-  relay.network.password = "{{ relay_password }}"
+password = "{{ relay_password }}"
+bind_address = "127.0.0.1"
 
 [port]
-  relay.port.weechat = {{ relay_port }}
+weechat = {{ relay_port }}
+
+[look]
+auto_open_buffer = off

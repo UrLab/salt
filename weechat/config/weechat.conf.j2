@@ -1,26 +1,26 @@
 [look]
-  weechat.look.buffer_notify_default = message
-  weechat.look.buffer_time_format = "%H:%M"
-  weechat.look.highlight = "{{ nickname|default(username) }},@channel,@here,@all,@urlab"
-  weechat.look.hotlist_count_min_msg = 4
-  weechat.look.hotlist_names_count = 10
-  weechat.look.hotlist_names_level = 14
-  weechat.look.hotlist_prefix = ""
-  weechat.look.hotlist_prefix = ""
-  weechat.look.prefix_align_max = 10
+buffer_notify_default = message
+buffer_time_format = "%H:%M"
+highlight = "{{ nickname|default(username) }},@channel,@here,@all,@urlab"
+hotlist_count_min_msg = 4
+hotlist_names_count = 10
+hotlist_names_level = 14
+hotlist_prefix = ""
+hotlist_prefix = ""
+prefix_align_max = 10
 
 [color]
-  weechat.color.chat_delimiters = 29
-  weechat.color.chat_host = 24
-  weechat.color.chat_nick_colors = "red,green,brown,blue,magenta,cyan,white,lightred,lightgreen,yellow,lightblue,lightmagenta,lightcyan"
-  weechat.color.chat_prefix_suffix = 24
-  weechat.color.nicklist_away = 244
-  weechat.color.separator = 60
+chat_delimiters = 29
+chat_host = 24
+chat_nick_colors = "red,green,brown,blue,magenta,cyan,white,lightred,lightgreen,yellow,lightblue,lightmagenta,lightcyan"
+chat_prefix_suffix = 24
+nicklist_away = 244
+separator = 60
 
 [bar]
-  weechat.bar.isetbar.items = "isetbar_help"
-  weechat.bar.status.items = "[time],[buffer_plugin],buffer_number+:+buffer_name+(buffer_modes),[lag],[hotlist],completion,scroll"
+isetbar.items = "isetbar_help"
+status.items = "[time],[buffer_plugin],buffer_number+:+buffer_name+(buffer_modes),[lag],[hotlist],completion,scroll"
 
 [filter]
-  irc_smart = on;*;irc_smart_filter;*
+irc_smart = on;*;irc_smart_filter;*
 
