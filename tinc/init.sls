@@ -6,7 +6,7 @@ tinc:
     - watch:
       - pkg: tinc
 
-/etc/tinc/urlab:
+/etc/tinc/urlab/hosts:
   file.directory:
     - user: root
     - group: root
@@ -43,7 +43,7 @@ tinc:
     - mode: 700
 
 {% for hostname, config in pillar['tinc'].items() %}
-/etc/tinc/urlab/{{hostname}}:
+/etc/tinc/urlab/hosts/{{hostname}}:
   file.managed:
     - source: salt://tinc/files/hosts
     - template: jinja
