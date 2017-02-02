@@ -53,12 +53,3 @@ tinc:
     - mode: 600
     - config: {{ config }}
 {% endfor %}
-
-
-/etc/network/interfaces.d/tun42:
-  file.managed:
-    - source: salt://tinc/files/tun42.j2
-    - template: jinja
-    - user: root
-    - group: root
-    - mode: 600
