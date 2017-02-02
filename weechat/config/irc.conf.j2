@@ -1,0 +1,19 @@
+[color]
+  irc.color.nick_prefixes = "q:lightred;a:lightcyan;o:lightgreen;h:lightmagenta;v:yellow;*:lightblue"
+  irc.color.reason_quit = 244
+  irc.color.topic_new = 36
+  irc.color.topic_old = 244
+
+[server_default]
+  irc.server_default.nicks = "{{ nickname|default(username) }}"
+  irc.server_default.ssl_priorities = "NORMAL"
+  irc.server_default.username = "{{ username }}"
+
+[server]
+  irc.server.freenode.addresses = "chat.freenode.net/7000"
+  irc.server.freenode.autoconnect = on
+  irc.server.freenode.autojoin = "#urlab"
+  irc.server.freenode.nicks = "{{ nickname|default(username) }},{{ nickname|default(username) }}_, {{ nickname|default(username) }}1"
+  irc.server.freenode.realname = "{{ username }}"
+  irc.server.freenode.ssl = on
+  irc.server.freenode.username = "{{ username }}"
