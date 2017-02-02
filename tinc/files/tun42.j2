@@ -1,0 +1,6 @@
+auto tun42
+iface tun42 inet static
+        bridge_ports none
+        birdge_fd 0
+        address {{ pillar['tinc'][grains['id']]['private_ip'] }}
+        netmask 255.255.255.0
