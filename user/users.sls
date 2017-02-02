@@ -24,6 +24,7 @@ sshdir_{{ user['username'] }}:
 sshkey_{{ user['username'] }}:
   file.managed:
     - name: /home/{{ user['username'] }}/.ssh/authorized_keys
+    - replace: False
 
 {% endif %}
 {% endfor %}
