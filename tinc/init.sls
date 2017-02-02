@@ -31,6 +31,7 @@ tinc:
 /etc/tinc/urlab/tinc-up:
   file.managed:
     - source: salt://tinc/files/tinc-up
+    - template: jinja
     - user: root
     - group: root
     - mode: 700
@@ -38,6 +39,7 @@ tinc:
 /etc/tinc/urlab/tinc-down:
   file.managed:
     - source: salt://tinc/files/tinc-down
+    - template: jinja
     - user: root
     - group: root
     - mode: 700
