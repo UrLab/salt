@@ -1,2 +1,2 @@
 #!/bin/sh
-ifconfig $INTERFACE 172.23.218.250 netmask 255.255.255.0
+ifconfig $INTERFACE {{ pillar['tinc'][pillar['hostname']]['private_ip'] }} netmask 255.255.255.0
