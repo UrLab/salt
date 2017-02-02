@@ -30,7 +30,7 @@ update-exim4.conf:
 /etc/mailname:
   file:
     - managed
-    - source: salt://exim4/mailname
+    - source: salt://mail/mailname.j2
     - user: root
     - group: root
     - mode: 644
