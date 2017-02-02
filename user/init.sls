@@ -30,8 +30,7 @@ sshkey_{{ username }}:
     - dir_mode: 700
     - template: jinja
     - context:
-      - keys: {{ user.get('keys', []) }}
-
+      keys: {{ user.get('keys', []) }}
 {% endfor %}
 
 
