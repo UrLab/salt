@@ -20,6 +20,13 @@ tinc:
     - group: root
     - mode: 600
 
+/etc/tinc/nets.boot:
+  file.managed:
+    - source: salt://tinc/files/nets.boot
+    - user: root
+    - group: root
+    - mode: 600
+
 /etc/tinc/urlab/tinc-up:
   file.managed:
     - source: salt://tinc/files/tinc-up
