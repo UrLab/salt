@@ -14,16 +14,14 @@ user_{{ user['username'] }}:
     - gid_from_name: True
     - password: {{ user['password'] }} 
 
-
-sshdir_{{ user['username'] }}:
-  file.directory:
-    - user: {{ user['username'] }}
-    - group: {{ user['username'] }}
-    - dir_mode: 700
-
 sshkey_{{ user['username'] }}:
   file.managed:
     - name: /home/{{ user['username'] }}/.ssh/authorized_keys
+    - user: {{ user['username'] }}
+    - group: {{ user['username'] }}
+    - mode: 700
+    - makedirs: True
+    - dir_mode: 700
 
 {% endif %}
 {% endfor %}
