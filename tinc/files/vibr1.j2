@@ -2,5 +2,5 @@ auto vibr1
 iface vibr1 inet static
         bridge_ports none
         birdge_fd 0
-        address {{ pillar['tinc'][grains['hostname']]['private_ip'] }}
+        address {{ pillar['tinc'][grain['hostname']]['private_ip'] }}
         netmask 255.255.255.0
