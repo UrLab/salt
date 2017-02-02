@@ -1,0 +1,19 @@
+[color]
+nick_prefixes = "q:lightred;a:lightcyan;o:lightgreen;h:lightmagenta;v:yellow;*:lightblue"
+reason_quit = 244
+topic_new = 36
+topic_old = 244
+
+[server_default]
+nicks = "{{ nickname|default(username) }}"
+ssl_priorities = "NORMAL"
+username = "{{ username }}"
+
+[server]
+addresses = "chat.freenode.net/7000"
+autoconnect = on
+autojoin = "#urlab"
+nicks = "{{ nickname|default(username) }},{{ nickname|default(username) }}_, {{ nickname|default(username) }}1"
+realname = "{{ username }}"
+ssl = on
+username = "{{ username }}"
