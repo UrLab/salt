@@ -1,4 +1,4 @@
-{% set users = pillar.get('users', []) %}
+{% set users = pillar.get('users', {}) %}
 
 sudo:
   pkg.installed
@@ -11,7 +11,7 @@ user_{{ username }}:
     - home: /home/{{ username }}
     - uid: {{ user['uid'] }}
     - gid_from_name: True
-    - password: {{ user['password'] }} 
+    - password: {{ user['password'] }}
 {% if user.get('sudo', False) %}
     - groups:
       - sudo
@@ -31,7 +31,6 @@ sshkey_{{ username }}:
     - template: jinja
     - context:
       keys: {{ user.get('keys', []) }}
-    
 {% endfor %}
 
 
