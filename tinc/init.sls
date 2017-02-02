@@ -16,6 +16,7 @@ tinc:
 /etc/tinc/urlab/tinc.conf:
   file.managed:
     - source: salt://tinc/files/tinc.conf
+    - template: jinja
     - user: root
     - group: root
     - mode: 600
