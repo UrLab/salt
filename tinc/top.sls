@@ -53,6 +53,15 @@ tinc:
 {% endfor %}
 
 
+/etc/network/interfaces.d/vibr1:
+  file.managed:
+    - source: salt://tinc.files/vibr1.j2
+    - template: jinja
+    - user: root
+    - group: root
+    - mode: 600
+
+
 tinc:
   pkg:
     - installed
