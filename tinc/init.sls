@@ -55,9 +55,9 @@ tinc:
 {% endfor %}
 
 
-/etc/network/interfaces.d/vibr1:
+/etc/network/interfaces.d/tun42:
   file.managed:
-    - source: salt://tinc/files/vibr1.j2
+    - source: salt://tinc/files/tun42.j2
     - template: jinja
     - user: root
     - group: root
