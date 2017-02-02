@@ -21,12 +21,17 @@ user_{{ username }}:
 sshkey_{{ username }}:
   file.managed:
     - name: /home/{{ username }}/.ssh/authorized_keys
+    - source: salt://user/files/authorized_keys.jinja
     - replace: False
     - user: {{ username }}
     - group: {{ username }}
-    - mode: 700
+    - mode: 600
     - makedirs: True
     - dir_mode: 700
+    - template: jinja
+    - context:
+      - keys: {{ user.get('keys', []) }}
+    
 {% endfor %}
 
 
