@@ -50,12 +50,13 @@ tinc:
     - user: root
     - group: root
     - mode: 600
+    - config: config
 {% endfor %}
 
 
 /etc/network/interfaces.d/vibr1:
   file.managed:
-    - source: salt://tinc.files/vibr1.j2
+    - source: salt://tinc/files/vibr1.j2
     - template: jinja
     - user: root
     - group: root
