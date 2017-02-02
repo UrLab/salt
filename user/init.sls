@@ -1,5 +1,7 @@
-
 {% set users = pillar.get('users', []) %}
+
+sudo:
+  pkg.installed
 
 {% for username, user in users.items() %}
 user_{{ username }}:
@@ -10,6 +12,10 @@ user_{{ username }}:
     - uid: {{ user['uid'] }}
     - gid_from_name: True
     - password: {{ user['password'] }} 
+{% if user.get('sudo', False) %}
+    - groups:
+      - sudo
+{% endif %}
     - enforce_password: False
 
 sshkey_{{ username }}:
