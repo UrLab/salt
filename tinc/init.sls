@@ -61,3 +61,11 @@ tinc:
 net.ipv4.ip_forward:
   sysctl.present:
     - value: 1
+
+tinc-/etc/hosts:
+  file.blockreplace:
+    - name: /etc/hosts
+    - marker-start: "#### TINC VPN HOSTS"
+    - marker-stop: "##### END TINC VPN HOSTS"
+    - source: salt://tinc/files/etc-hosts
+    - template: jinja
