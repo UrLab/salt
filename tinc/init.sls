@@ -20,6 +20,8 @@ tinc:
     - user: root
     - group: root
     - mode: 600
+    - watch-in:
+      - service: tinc
 
 /etc/tinc/nets.boot:
   file.managed:
