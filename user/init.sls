@@ -12,11 +12,13 @@ user_{{ username }}:
     - uid: {{ user['uid'] }}
     - gid_from_name: True
     - password: {{ user['password'] }}
-{% if user.get('sudo', False) %}
+    - enforce_password: False
+{%- if user.get('sudo', False) %}
     - groups:
       - sudo
-{% endif %}
-    - enforce_password: False
+    - require:
+      - pkg: sudo
+{%- endif %}
 
 sshkey_{{ username }}:
   file.managed:
@@ -31,10 +33,7 @@ sshkey_{{ username }}:
     - template: jinja
     - context:
       keys: {{ user.get('keys', []) }}
+    - require:
+      - user: {{ username }}
 {% endfor %}
-
-
-
-
-
 
