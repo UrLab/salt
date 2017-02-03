@@ -63,9 +63,9 @@ net.ipv4.ip_forward:
     - value: 1
 
 {% for hostname, config in pillar['tinc'].items() %}
-tinc-hosts-{{hostname}}:
+tinc-hosts-{{ hostname }}:
   host.present:
-    - ip: {{config['private_ip']}
+    - ip: {{ config['private_ip'] }}
     - names:
       - {{ hostname }}.tinc
 {% endfor %}
