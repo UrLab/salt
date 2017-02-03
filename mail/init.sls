@@ -1,7 +1,7 @@
 exim4-pkg:
   pkg:
     - latest
-    - name: exim4-daemon-light
+    - name: exim4-daemon-heavy
 
 exim4-service:
   service:
