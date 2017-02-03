@@ -66,6 +66,6 @@ tinc-/etc/hosts:
   file.blockreplace:
     - name: /etc/hosts
     - marker_start: "#### TINC VPN HOSTS"
-    - marker_stop: "##### END TINC VPN HOSTS"
+    - marker_end: "##### END TINC VPN HOSTS"
     - source: salt://tinc/files/etc-hosts
     - template: jinja
