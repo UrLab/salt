@@ -16,7 +16,7 @@ base_nscd_service:
 base_nscd_conf:
   file.managed:
     - name: /etc/nscd.conf
-    - source: salt://base/file/nscd.conf
+    - source: salt://base/files/nscd.conf
     - user: root
     - group: root
     - mode: 644
