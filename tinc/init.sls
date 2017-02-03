@@ -62,10 +62,10 @@ net.ipv4.ip_forward:
   sysctl.present:
     - value: 1
 
-tinc-/etc/hosts:
-  file.blockreplace:
-    - name: /etc/hosts
-    - marker_start: "#### TINC VPN HOSTS"
-    - marker_end: "##### END TINC VPN HOSTS"
-    - source: salt://tinc/files/etc-hosts
-    - template: jinja
+{% for hostname, config in pillar['tinc'].items() %}
+tinc-hosts-{{hostname}}:
+  host.present:
+    - ip: {{config['private_ip']}
+    - names:
+      - {{ hostname }}.tinc
+{% endfor %}
