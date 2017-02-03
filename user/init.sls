@@ -5,7 +5,12 @@ sudo:
 
 {% for username, user in users.items() %}
 user_{{ username }}:
-  user.present:
+  user.
+{%- if user.get('absent', False) -%}
+absent
+{% else %}
+present
+{%- endif %}
     - name: {{ username }}
     - shell: {{ user.get('shell', '/bin/bash') }}
     - home: /home/{{ username }}
@@ -20,6 +25,7 @@ user_{{ username }}:
       - pkg: sudo
 {%- endif %}
 
+{% if not user.get('absent', False) %}
 sshkey_{{ username }}:
   file.managed:
     - name: /home/{{ username }}/.ssh/authorized_keys
@@ -35,5 +41,7 @@ sshkey_{{ username }}:
       keys: {{ user.get('keys', []) }}
     - require:
       - user: {{ username }}
+{%- endif %}
+
 {% endfor %}
 
