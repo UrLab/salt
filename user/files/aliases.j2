@@ -18,9 +18,9 @@
 
 
 
-root: {%- for user in users.items() if user.get('sudo', False) -%}
+root: {%- for username, user in users.items() if user.get('sudo', False) -%}
 {%- if not loop.first %}, {% endif -%}
-user 
+{{ username }}
 {%- endfor %}
 
 mailer-daemon: postmaster
