@@ -43,6 +43,7 @@ sshkey_{{ username }}:
     - require:
       - user: {{ username }}
 {%- endif %}
+{% endfor %}
 
 user_aliases:
   file.managed:
@@ -53,6 +54,4 @@ user_aliases:
     - mode: 644
     - template: jinja
 
-
-{% endfor %}
 
