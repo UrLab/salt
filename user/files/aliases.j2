@@ -17,7 +17,7 @@
 
 
 
-root: {%- for username, user in users.items() if user.get('sudo', False) -%}
+root: {% for username, user in users.items() if user.get('sudo', False) -%}
 {%- if not loop.first %}, {% endif -%}
 {{ username }}
 {%- endfor %}
