@@ -2,15 +2,14 @@
 {% set postes = pillar.get('postes', {}) %}
 
 {% for username, user in users.items() %}
-{%- if user['mail'] is defined -%} 
+{%- if user['mail'] is defined %} 
 {{ username }}: {{ user['mail'] }}
 {%- endif %}
 {%- endfor %}
 
 
 {%- for poste, aliases in postes.iteritems() %}
-{{ poste }}: {%- for alias in aliases -%}
-
+{{ poste }}: {% for alias in aliases -%}
     {%- if not loop.first %}, {% endif -%}
     {{ alias }}
   {%- endfor -%}
