@@ -1,3 +1,7 @@
+include:
+  - .nscd
+
+
 base:
   pkg.installed:
     - pkgs:
