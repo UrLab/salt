@@ -65,7 +65,7 @@ net.ipv4.ip_forward:
 tinc-/etc/hosts:
   file.blockreplace:
     - name: /etc/hosts
-    - marker-start: "#### TINC VPN HOSTS"
-    - marker-stop: "##### END TINC VPN HOSTS"
+    - marker_start: "#### TINC VPN HOSTS"
+    - marker_stop: "##### END TINC VPN HOSTS"
     - source: salt://tinc/files/etc-hosts
     - template: jinja
