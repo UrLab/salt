@@ -5,8 +5,8 @@
 
 dc_eximconfig_configtype='internet'
 dc_other_hostnames='urlab.be; urlab'
-dc_local_interfaces='127.0.0.1:{{ grains['fqdn_ip4'] }}'
-local_interfaces='127.0.0.1:{{ grains['fqdn_ip4'] }}'
+dc_local_interfaces='127.0.0.1:{{ grains['fqdn_ip4']|join(':') }}'
+local_interfaces='127.0.0.1:{{ grains['fqdn_ip4']|join(':') }}'
 dc_readhost=''
 dc_relay_domains=''
 dc_minimaldns='false'
