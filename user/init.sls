@@ -7,9 +7,9 @@ sudo:
 user_{{ username }}:
   user.
 {%- if user.get('absent', False) -%}
-absent
+absent:
 {%- else -%}
-present
+present:
 {%- endif %}
     - name: {{ username }}
     - shell: {{ user.get('shell', '/bin/bash') }}
