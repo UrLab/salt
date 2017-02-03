@@ -8,7 +8,7 @@ user_{{ username }}:
   user.
 {%- if user.get('absent', False) -%}
 absent
-{% else %}
+{%- else -%}
 present
 {%- endif %}
     - name: {{ username }}
