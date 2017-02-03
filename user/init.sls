@@ -1,7 +1,8 @@
 {% set users = pillar.get('users', {}) %}
 
 user_sudo:
-  pkg.installed
+  pkg.installed:
+    - name: sudo
 
 {% for username, user in users.items() %}
 
@@ -24,7 +25,7 @@ user_{{ username }}:
     - groups:
       - sudo
     - require:
-      - pkg: sudo
+      - pkg: user_sudo
 {%- endif %}
 
 user_sshkey_{{ username }}:
