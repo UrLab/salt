@@ -4,7 +4,7 @@
 {% for username, user in users.items() %}
 {%- if user['mail'] is defined -%} 
 {{ username }}: {{ user['mail'] }}
-{%- endif }}
+{%- endif %}
 {%- endfor %}
 
 
