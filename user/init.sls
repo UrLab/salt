@@ -4,13 +4,15 @@ sudo:
   pkg.installed
 
 {% for username, user in users.items() %}
+
+{%- if user.get('absent', False) %}
 user_{{ username }}:
-  user.
-{%- if user.get('absent', False) -%}
-absent:
-{%- else -%}
-present:
-{%- endif %}
+  user.absent:
+    - name: {{ username }}
+
+{%- else %}
+user_{{ username }}:
+  user.present:
     - name: {{ username }}
     - shell: {{ user.get('shell', '/bin/bash') }}
     - home: /home/{{ username }}
@@ -25,7 +27,6 @@ present:
       - pkg: sudo
 {%- endif %}
 
-{% if not user.get('absent', False) %}
 sshkey_{{ username }}:
   file.managed:
     - name: /home/{{ username }}/.ssh/authorized_keys
@@ -42,6 +43,5 @@ sshkey_{{ username }}:
     - require:
       - user: {{ username }}
 {%- endif %}
-
 {% endfor %}
 
