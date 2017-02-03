@@ -22,7 +22,7 @@ exim4-config:
     - group: root
     - mode: 644
     - require:
-      - pkg: pkg-exim4
+      - pkg: exim4-pkg
 
 exim4-mailname:
   file.managed:
@@ -32,5 +32,5 @@ exim4-mailname:
     - mode: 644
     - contents_grains: id
     - require:
-      - pkg: pkg-exim4
+      - pkg: exim4-pkg
 
