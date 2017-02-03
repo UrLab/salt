@@ -1,6 +1,6 @@
 {% set users = pillar.get('users', {}) %}
 
-sudo:
+user_sudo:
   pkg.installed
 
 {% for username, user in users.items() %}
@@ -27,7 +27,7 @@ user_{{ username }}:
       - pkg: sudo
 {%- endif %}
 
-sshkey_{{ username }}:
+user_sshkey_{{ username }}:
   file.managed:
     - name: /home/{{ username }}/.ssh/authorized_keys
     - source: salt://user/files/authorized_keys.jinja
