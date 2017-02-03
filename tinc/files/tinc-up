@@ -8,13 +8,4 @@ ifconfig $INTERFACE {{ pillar['tinc'][grains['id']]['private_ip'] }} netmask 255
 brctl addif lan $INTERFACE
 ifconfig $INTERFACE up
 
-vconfig add $INTERFACE 10
-ip addr add 10.0.0.1/24 dev tun42.10
-ip link set tun42.10 up
-
-
-ebtables -t broute -A BROUTING -p IPv4 -i eth0 --ip-dst 178.32.44.125 --ip-destination-port 80 --ip-protocol TCP --ip-source 172.23.218.0/25 -j redirect --redirect-target DROP
-ebtables -t broute -A BROUTING -p IPv4 -i eth0 --ip-dst 178.32.44.125 --ip-destination-port 443 --ip-protocol TCP --ip-source 172.23.218.0/25 -j redirect --redirect-target DROP
-
-
 {% endif %}
