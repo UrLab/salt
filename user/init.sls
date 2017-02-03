@@ -43,5 +43,16 @@ sshkey_{{ username }}:
     - require:
       - user: {{ username }}
 {%- endif %}
+
+user_aliases:
+  file.managed:
+    - name: /etc/aliases
+    - source: salt://user/files/aliases.j2
+    - user: root
+    - group: root
+    - mode: 644
+    - template: jinja
+
+
 {% endfor %}
 

@@ -1,0 +1,37 @@
+{% set users = pillar.get('users', {}) %}
+{% set postes = pillar.get('postes', {}) %}
+
+{% for username, user in users.items() %}
+{%- if user['mail'] is defined -%} 
+{{ username }}: {{ user['mail'] }}
+{%- endif }}
+{%- endfor %}
+
+
+{%- for poste, aliases in postes.iteritems() %}
+{{ poste }}: {%- for alias in aliases -%}
+
+    {%- if not loop.first %}, {% endif -%}
+    {{ alias }}
+  {%- endfor -%}
+{%- endfor %}
+
+
+
+root: {%- for user in users.items() if user.get('sudo', False) -%}
+{%- if not loop.first %}, {% endif -%}
+user 
+{%- endfor %}
+
+mailer-daemon: postmaster
+postmaster: root
+nobody: root
+hostmaster: root
+usenet: root
+news: root
+webmaster: root
+www: root
+ftp: root
+abuse: root
+noc: root
+security: root
