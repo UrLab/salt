@@ -5,6 +5,7 @@ exim4-pkg:
 
 exim4-service:
   service:
+    - name: exim4
     - running
     - enable: True
     - watch:
@@ -33,4 +34,3 @@ exim4-mailname:
     - contents_grains: id
     - require:
       - pkg: exim4-pkg
-
