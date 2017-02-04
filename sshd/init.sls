@@ -21,7 +21,7 @@ sshd_fail2ban:
 sshd_conf:
   file.managed:
     - name: /etc/ssh/sshd_config
-    - source: salt://sshd/
+    - source: salt://sshd/file/sshd_config.j2
     - template: jinja
     - mode: 644
     - owner: root
