@@ -5,3 +5,5 @@ base:
     - tinc
   'shelob':
     - mail
+  'applejack':
+    - user.root
