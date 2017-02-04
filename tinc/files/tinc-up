@@ -1,17 +1,26 @@
 #!/bin/sh
 
-{% set tinc = pillar['tinc'][grains['id']] %}
+{%- set tinc = pillar['tinc'][grains['id']] %}
+
+##########
+# Pre up #
+##########
 
 {{ tinc.get('pre-up',"") }}
 
-{%- if tinc['bridge'] is defined %}
+######
+# Up #
+######
+
+{% if tinc['bridge'] is defined %}
 brctl addif {{ tinc['bridge'] }} $INTERFACE
 {%- else %}
 ifconfig $INTERFACE {{ tinc['private_ip'] }} netmask 255.255.255.0
 {%- endif %}
 ifconfig $INTERFACE up
 
+###########
+# Post up #
+###########
 
 {{ tinc.get('post-up',"") }}
-
-

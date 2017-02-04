@@ -1,15 +1,23 @@
 #!/bin/sh
 
-{% set tinc = pillar['tinc'][grains['id']] %}
+{%- set tinc = pillar['tinc'][grains['id']] %}
+############
+# Pre down #
+############
 
 {{ tinc.get('pre-down',"") }}
 
-{%- if tinc['bridge'] is defined %}
+########
+# Down #
+########
+
+{% if tinc['bridge'] is defined %}
 brctl delif {{ tinc['bridge'] }} $INTERFACE
 {%- endif %}
 ifconfig $INTERFACE down
 
+#############
+# Post down #
+#############
+
 {{ tinc.get('pre-up',"") }}
-
-
-
