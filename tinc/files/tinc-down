@@ -20,4 +20,4 @@ ifconfig $INTERFACE down
 # Post down #
 #############
 
-{{ tinc.get('pre-up',"") }}
+{{ tinc.get('post-down',"") }}
