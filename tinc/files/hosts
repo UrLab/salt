@@ -1,4 +1,6 @@
+{%- if config['address'] is defined %}
 Address = {{config['address']}}
-Port = 8000
+Port = {{ config.get('port',8000) }}
+{%- endif %}
 
 {{ config['public'] |replace("\\n", "\n") }}
