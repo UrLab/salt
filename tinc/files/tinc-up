@@ -1,11 +1,17 @@
 #!/bin/sh
-{% if grains['id'] != "azog" %}
 
-ifconfig $INTERFACE {{ pillar['tinc'][grains['id']]['private_ip'] }} netmask 255.255.255.0
+{% set tinc = pillar['tinc'][grains['id']] %}
 
-{% else %}
+{{ tinc.get('pre-up',"") }}
 
-brctl addif lan $INTERFACE
+{%- if tinc['bridge'] is defined %}
+brctl addif {{ tinc['bridge'] }} $INTERFACE
+{%- else %}
+ifconfig $INTERFACE {{ tinc['private_ip'] }} netmask 255.255.255.0
+{%- endif %}
 ifconfig $INTERFACE up
 
-{% endif %}
+
+{{ tinc.get('post-up',"") }}
+
+
