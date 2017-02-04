@@ -78,11 +78,13 @@ include:
     - require:
       - file: /etc/tinc/urlab/hosts
 
+{% if config['private_ip'] is defined %}
 tinc-hosts-{{ hostname }}:
   host.present:
     - ip: {{ config['private_ip'] }}
     - names:
       - {{ hostname }}.tinc
+{% endif %}
 
 {% endfor %}
 
