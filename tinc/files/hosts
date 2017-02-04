@@ -1,4 +1,4 @@
-{%- if config['address'] is defined %}
+{%- if config['address'] is defined -%}
 Address = {{config['address']}}
 Port = {{ config.get('port',8000) }}
 {%- endif %}
