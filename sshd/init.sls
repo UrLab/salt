@@ -28,12 +28,12 @@ sshd_conf:
     - group: root
     - context:
        AllowUsers:
-{%- for username, user in users if not user.get('absent', False) and not user.get('local', False) %}
+{%- for username, user in users.iteritems() if not user.get('absent', False) and not user.get('local', False) %}
          - {{ username }}
 {%- endfor %}
     - require:
       - pkg: sshd_pkg
-{%- for username, user in users if not user.get('absent', False) and not user.get('local', False) %}
+{%- for username, user in users.iteritems() if not user.get('absent', False) and not user.get('local', False) %}
       - user: {{ username }}
 {%- endfor %}
 
