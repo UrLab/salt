@@ -14,6 +14,7 @@
     - makedirs: True
     - context:
       port: {{60000 + user.uid}}
+      username: {{ username }}
     - require:
       - pkg: nginx
     - watch_in:
