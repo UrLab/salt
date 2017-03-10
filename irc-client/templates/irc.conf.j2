@@ -10,10 +10,10 @@ ssl_priorities = "NORMAL"
 username = "{{ username }}"
 
 [server]
-addresses = "chat.freenode.net/7000"
-autoconnect = on
-autojoin = "#urlab"
-nicks = "{{ nickname|default(username) }},{{ nickname|default(username) }}_, {{ nickname|default(username) }}1"
-realname = "{{ username }}"
-ssl = on
-username = "{{ username }}"
+freenode.addresses = "chat.freenode.net/7000"
+freenode.autoconnect = on
+freenode.autojoin = "#urlab"
+freenode.nicks = "{{ nickname|default(username) }},{{ nickname|default(username) }}_, {{ nickname|default(username) }}1"
+freenode.realname = "{{ username }}"
+freenode.ssl = on
+freenode.username = "{{ username }}"
