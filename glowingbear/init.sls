@@ -34,8 +34,13 @@
     - watch_in:
       - service: nginx
 
-
 /usr/share/nginx/glowingbear/:
+  file.directory:
+    - user: www-data
+    - group: www-data
+    - dir_mode: 700
+
+/usr/share/nginx/glowingbear/-git:
   git.latest:
     - name: https://github.com/glowing-bear/glowing-bear.git
     - target: /usr/share/nginx/glowingbear/
