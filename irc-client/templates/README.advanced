@@ -1,0 +1,8 @@
+Tu ne veux pas utiliser weechat ?
+Ca te fait chier de faire ./irc et pas d'utiliser tmux comme les vrais ?
+Tu veux savoir comment tout ça marche par derrière ?
+
+Il existe un script dans ta home, ".irc_startup" qui est exéceuté à chaque
+démarrage de ce serveur (voir "crontab -e").
+A la base, il démarre weechat dans un screen,
+mais tu peux y mettre ce que tu veux, comme par exemple irssi dans tmux.

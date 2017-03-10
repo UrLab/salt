@@ -101,5 +101,32 @@ irc_weechat_pkg:
     - group: {{ username }}
     - mode: 500
 
+/home/{{ username }}/README.advanced:
+  file.managed:
+    - source: salt://irc-client/templates/README.advanced
+    - user: {{ username }}
+    - group: {{ username }}
+    - mode: 500
+
+/home/{{ username }}/MIGRATION:
+  file.managed:
+    - source: salt://irc-client/templates/MIGRATION
+    - user: {{ username }}
+    - group: {{ username }}
+    - mode: 500
+
+/home/{{ username }}/.welcome:
+  file.managed:
+    - source: salt://irc-client/templates/.welcome
+    - user: {{ username }}
+    - group: {{ username }}
+    - mode: 500
+
+/home/{{ username }}/profile:
+  file.managed:
+    - source: salt://irc-client/templates/profile
+    - user: {{ username }}
+    - group: {{ username }}
+    - mode: 500
 {%- endif %}
 {% endfor %}
