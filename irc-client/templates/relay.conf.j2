@@ -1,9 +1,9 @@
 [network]
-password = "{{ relay_password }}"
+password = "{{ salt.cmd.run('openssl passwd 16') }}"
 bind_address = "127.0.0.1"
 
 [port]
-weechat = {{ salt.cmd.run('openssl passwd 16') }}
+weechat = {{ relay_port }}
 
 [look]
 auto_open_buffer = off
