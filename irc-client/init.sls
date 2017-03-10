@@ -122,7 +122,7 @@ irc_weechat_pkg:
     - group: {{ username }}
     - mode: 500
 
-/home/{{ username }}/profile:
+/home/{{ username }}/.profile:
   file.managed:
     - source: salt://irc-client/templates/profile
     - user: {{ username }}
