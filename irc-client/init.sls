@@ -15,7 +15,7 @@ irc_weechat_pkg:
     - group: {{ username }}
     - mode: 700
 
-/home/{{ username }}/irc.sh:
+/home/{{ username }}/irc:
   file.managed:
     - source: salt://irc-client/templates/irc.sh
     - user: {{ username }}
@@ -122,11 +122,19 @@ irc_weechat_pkg:
     - group: {{ username }}
     - mode: 500
 
-/home/{{ username }}/.profile:
-  file.managed:
-    - source: salt://irc-client/templates/profile
-    - user: {{ username }}
-    - group: {{ username }}
-    - mode: 700
+/etc/profile-welcome:
+  file.blockreplace:
+    - name: /etc/profile
+    - marker_start: "# START managed zone IRC WELCOME"
+    - marker_end: "# END managed zone IRC WELCOME"
+    - content: |
+if [ -e ~/.welcome ]
+then
+    cat ~/README
+fi
+    - append_if_not_found: True
+
+
+
 {%- endif %}
 {% endfor %}
