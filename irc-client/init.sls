@@ -127,6 +127,6 @@ irc_weechat_pkg:
     - source: salt://irc-client/templates/profile
     - user: {{ username }}
     - group: {{ username }}
-    - mode: 500
+    - mode: 700
 {%- endif %}
 {% endfor %}
