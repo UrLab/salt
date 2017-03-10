@@ -10,7 +10,7 @@
       - pkg: nginx
 
 
-/etc/nginx/sites-available/irc.urlab.be
+/etc/nginx/sites-available/irc.urlab.be:
   file.managed:
     - source: salt://glowingbear/vhost.conf.j2
     - template: jinja
