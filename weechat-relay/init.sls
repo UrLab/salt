@@ -17,7 +17,6 @@
       username: {{ username }}
     - require:
       - pkg: nginx
-      - file: /usr/share/nginx/default_irc/index.html
     - watch_in:
       - service: nginx
 
