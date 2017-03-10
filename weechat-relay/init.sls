@@ -23,9 +23,9 @@
 /etc/nginx/sites-enabled/relay-{{username}}:
   file.symlink:
     - makedirs: True
-    - target: /etc/nginx/sites-available/{{username}}
+    - target: /etc/nginx/sites-available/relay-{{username}}
     - require:
-        - file: /etc/nginx/sites-available/{{username}}
+        - file: /etc/nginx/sites-available/relay-{{username}}
     - watch_in:
       - service: nginx
 
