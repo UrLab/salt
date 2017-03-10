@@ -11,3 +11,4 @@ base:
     - irc-client
     - nginx
     - weechat-relay
+    - glowingbear

@@ -1,6 +1,5 @@
 {% set users = pillar.get('users', {}) %}
 
-
 {% for username, user in users.items() %}
 {%- if user.get('irc', False) %}
 
