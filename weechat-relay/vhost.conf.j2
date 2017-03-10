@@ -25,5 +25,10 @@ server {
       limit_req zone=weechat-{{ username }} burst=1 nodelay;
   }
 
+  location / {
+      root /usr/share/nginx/default_irc/;
+      index index.html;
+  }
+
 }
 

@@ -1,0 +1,15 @@
+server {
+
+    listen 80;
+    server_name irc.urlab.be;
+
+    location / {
+        root /usr/share/nginx/default_irc/;
+        index index.html;
+    }
+
+    location /client {
+        root /usr/share/nginx/glowingbear/;
+        index index.html;
+    }
+}
