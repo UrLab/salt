@@ -133,6 +133,7 @@ irc_weechat_pkg:
     - content: |
         if [ -e ~/.welcome ]
         then
+            echo "---------------------"
             cat ~/README
         fi
 
