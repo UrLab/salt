@@ -14,7 +14,7 @@ irc_weechat_pkg:
     - user: {{ username }}
     - group: {{ username }}
     - mode: 700
-    # - replace: False
+    - replace: False
 
 /home/{{ username }}/irc_startup.sh_cron:
   cron.present:
@@ -79,6 +79,13 @@ irc_weechat_pkg:
     - context:
       username: {{ username }}
       nickname: {{ user.get('nickname', username) }}
+
+/home/{{ username }}/README:
+  file.managed:
+    - source: salt://irc-client/templates/README
+    - user: {{ username }}
+    - group: {{ username }}
+    - mode: 500
 
 {%- endif %}
 {% endfor %}
