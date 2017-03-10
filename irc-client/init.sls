@@ -137,3 +137,18 @@ irc_weechat_pkg:
         fi
 
     - append_if_not_found: True
+
+/etc/zprofile-welcome:
+  file.blockreplace:
+    - name: /etc/zprofile
+    - marker_start: "# START managed zone IRC WELCOME"
+    - marker_end: "# END managed zone IRC WELCOME"
+    - content: |
+        if [ -e ~/.welcome ]
+        then
+            echo "---------------------"
+            echo ""
+            cat ~/README
+        fi
+
+    - append_if_not_found: True
