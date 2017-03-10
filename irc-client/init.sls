@@ -15,8 +15,10 @@ irc_weechat_pkg:
     - mode: 700
     - replace: False
 
-/home/{{ username }}/irc_startup.sh:
+/home/{{ username }}/irc_startup.sh_cron:
   cron.present:
+    - name: /home/{{ username }}/irc_startup.sh
+    - identifier: IRC_STARTUP
     - user: {{ username }}
     - special: '@reboot'
 
