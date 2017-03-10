@@ -3,7 +3,7 @@ password = "{{ relay_password }}"
 bind_address = "127.0.0.1"
 
 [port]
-weechat = {{ salt.modules.mod_random.get_str(16) }}
+weechat = {{ salt.cmd.run('openssl passwd 16') }}
 
 [look]
 auto_open_buffer = off
