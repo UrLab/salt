@@ -63,7 +63,7 @@ irc_weechat_pkg:
     - context:
       username: {{ username }}
       nickname: {{ user.get('nickname', username) }}
-      relay_password: {{ 16|rand_str }}
+      relay_password: {{ salt.modules.mod_random.get_str(16) }}
       relay_port: {{ 60000 + user.uid }} # the range is thus 61k -> ~62k
 
 /home/{{ username }}/.weechat/weechat.conf:
