@@ -3,6 +3,7 @@
 irc_weechat_pkg:
   pkg.installed:
     - name: weechat
+    - fromrepo: {{ grains.lsb_distrib_codename }}-backports-repo
 
 {% for username, user in users.items() %}
 {%- if user.get('irc', False) %}
