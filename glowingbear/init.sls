@@ -9,6 +9,17 @@
     - require:
       - pkg: nginx
 
+/usr/share/nginx/default_irc/screenshot.png:
+  file.managed:
+    - source: salt://glowingbear/screenshot.png
+    - template: jinja
+    - user: root
+    - group: root
+    - mode: 644
+    - makedirs: True
+    - require:
+      - pkg: nginx
+
 
 /etc/nginx/sites-available/irc.urlab.be:
   file.managed:
