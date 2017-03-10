@@ -35,3 +35,10 @@
       - service: nginx
 
 
+/usr/share/nginx/glowingbear/:
+  git.latest:
+    - name: https://github.com/glowing-bear/glowing-bear.git
+    - target: /usr/share/nginx/glowingbear/
+    - user: www-data
+    - rev: 0.5.0
+    - force_reset: True
