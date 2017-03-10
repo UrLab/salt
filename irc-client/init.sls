@@ -8,17 +8,31 @@ irc_weechat_pkg:
 {% for username, user in users.items() %}
 {%- if user.get('irc', False) %}
 
-/home/{{ username }}/irc_startup.sh:
+/home/{{ username }}/relay_password.sh:
+  file.managed:
+    - source: salt://irc-client/templates/relay_password.sh
+    - user: {{ username }}
+    - group: {{ username }}
+    - mode: 700
+
+/home/{{ username }}/irc.sh:
+  file.managed:
+    - source: salt://irc-client/templates/irc.sh
+    - user: {{ username }}
+    - group: {{ username }}
+    - mode: 700
+
+/home/{{ username }}/.irc_startup.sh:
   file.managed:
     - source: salt://irc-client/templates/irc_startup.sh
     - user: {{ username }}
     - group: {{ username }}
     - mode: 700
-    # - replace: False
+    - replace: False
 
 /home/{{ username }}/irc_startup.sh_cron:
   cron.present:
-    - name: /home/{{ username }}/irc_startup.sh
+    - name: /home/{{ username }}/.irc_startup.sh
     - identifier: IRC_STARTUP
     - user: {{ username }}
     - special: '@reboot'
