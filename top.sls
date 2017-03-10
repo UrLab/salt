@@ -7,3 +7,4 @@ base:
     - mail
   'applejack':
     - user.root
+    - irc-client
