@@ -128,10 +128,11 @@ irc_weechat_pkg:
     - marker_start: "# START managed zone IRC WELCOME"
     - marker_end: "# END managed zone IRC WELCOME"
     - content: |
-      if [ -e ~/.welcome ]
-      then
-          cat ~/README
-      fi
+        if [ -e ~/.welcome ]
+        then
+            cat ~/README
+        fi
+
     - append_if_not_found: True
 
 
