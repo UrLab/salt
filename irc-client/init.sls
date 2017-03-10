@@ -117,7 +117,7 @@ irc_weechat_pkg:
 
 /home/{{ username }}/.welcome:
   file.managed:
-    - source: salt://irc-client/templates/.welcome
+    - source: salt://irc-client/templates/welcome
     - user: {{ username }}
     - group: {{ username }}
     - mode: 500
