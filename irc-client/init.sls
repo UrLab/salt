@@ -140,10 +140,11 @@ irc_weechat_pkg:
     - append_if_not_found: True
 
 /etc/zprofile-welcome:
-  file.blockreplace:
+  file.managed:
     - name: /etc/zprofile
-    - marker_start: "# START managed zone IRC WELCOME"
-    - marker_end: "# END managed zone IRC WELCOME"
+    - user: root
+    - group: root
+    - mode: 644
     - content: |
         if [ -e ~/.welcome ]
         then
