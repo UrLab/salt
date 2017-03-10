@@ -9,3 +9,5 @@ base:
   'applejack':
     - user.root
     - irc-client
+    - nginx
+    - weechat-relay
