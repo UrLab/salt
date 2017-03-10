@@ -122,6 +122,9 @@ irc_weechat_pkg:
     - group: {{ username }}
     - mode: 500
 
+{%- endif %}
+{% endfor %}
+
 /etc/profile-welcome:
   file.blockreplace:
     - name: /etc/profile
@@ -134,8 +137,3 @@ irc_weechat_pkg:
         fi
 
     - append_if_not_found: True
-
-
-
-{%- endif %}
-{% endfor %}
