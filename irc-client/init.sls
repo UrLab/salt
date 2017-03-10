@@ -30,12 +30,14 @@ irc_weechat_pkg:
     - mode: 700
     - replace: False
 
-/home/{{ username }}/irc_startup.sh_cron:
-  cron.present:
-    - name: /home/{{ username }}/.irc_startup.sh
-    - identifier: IRC_STARTUP
-    - user: {{ username }}
-    - special: '@reboot'
+# Isn't it better to let the user install the cron himself with a nice script ?
+# See /bin/install-irc-reboot
+# /home/{{ username }}/irc_startup.sh_cron:
+#   cron.present:
+#     - name: /home/{{ username }}/.irc_startup.sh
+#     - identifier: IRC_STARTUP
+#     - user: {{ username }}
+#     - special: '@reboot'
 
 /home/{{ username }}/.weechat:
   file.directory:
@@ -124,6 +126,13 @@ irc_weechat_pkg:
 
 {%- endif %}
 {% endfor %}
+
+/bin/install-irc-reboot:
+  file.managed:
+    - user: root
+    - group: root
+    - mode: 755
+    - source: salt://irc-client/templates/install-irc-reboot
 
 /etc/profile-welcome:
   file.blockreplace:
