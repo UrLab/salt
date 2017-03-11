@@ -45,7 +45,7 @@ irc_weechat_pkg:
     - group: {{ username }}
     - template: jinja
     - mode: 500
-    # - replace: False
+    - replace: False
     - context:
       username: {{ username }}
       nickname: {{ user.get('nickname', username) }}
