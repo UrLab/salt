@@ -15,6 +15,8 @@ Quelques commandes utiles à taper dans IRC :
     - "ctrl-p" pour aller à la fenêtre précédente
     - "/j #un_super_chan" pour rejoindre un autre channel
 
+Tu veux que ta connexion IRC soit relancée à chaque redémarage du
+serveur ? Utilise la commande install-irc-reboot.
 
 Tu avais déjà accès à l'ancien bouncer et tu te demandes ou sont tes fichiers
 et ou est ta belle config irssi toute brillante ?
