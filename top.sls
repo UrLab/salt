@@ -10,5 +10,6 @@ base:
     - user.root
     - irc-client
     - nginx
+    - acme
     - weechat-relay
     - glowingbear

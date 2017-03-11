@@ -1,0 +1,5 @@
+acme:
+  bin_dir: /opt/letsencrypt
+  webroot: /usr/share/nginx/acme_webroot/
+  email: root@urlab.be
+  renew: 14

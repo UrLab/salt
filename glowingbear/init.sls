@@ -74,6 +74,6 @@ irc.urlab.be:
 {% for username, user in users.items() %}
       - {{ username }}.irc.urlab.be
 {% endfor %}
-    - email: root@urlab.be
-    - webroot: /usr/share/nginx/acme_webroot/
-    - renew: 14
+    - email: {{ acme.email }}
+    - webroot: {{ acme.webroot }}
+    - renew: {{ acme.renew }}
