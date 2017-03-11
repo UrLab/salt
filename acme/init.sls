@@ -1,4 +1,4 @@
-{% from "acme/config.yaml" import acme %}
+{% import_yaml "acme/config.yaml" as acme %}
 
 acme-client-git:
   git.latest:

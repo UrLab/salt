@@ -1,5 +1,5 @@
 {% set users = pillar.get('users', {}) %}
-{% from "acme/config.yaml" import acme %}
+{% import_yaml "acme/config.yaml" as acme %}
 
 
 /usr/share/nginx/default_irc/index.html:
