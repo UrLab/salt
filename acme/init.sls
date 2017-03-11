@@ -15,3 +15,9 @@ acme-config:
     - context:
       email: {{ acme.email }}
       webroot: {{ acme.webroot }}
+
+
+/etc/nginx/ssl-basic.include:
+  file.managed:
+    - makedirs: true
+    - source: salt://acme/ssl.include
