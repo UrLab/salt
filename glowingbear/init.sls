@@ -67,6 +67,7 @@
     - user: root
     - group: root
     - dir_mode: 755
+{% from "acme/map.jinja" import acme with context %}
 
 irc.urlab.be:
   acme.cert:

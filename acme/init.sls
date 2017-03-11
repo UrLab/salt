@@ -1,3 +1,5 @@
+{% from "acme/map.jinja" import acme with context %}
+
 acme-client-git:
   git.latest:
     - name: https://github.com/letsencrypt/letsencrypt
