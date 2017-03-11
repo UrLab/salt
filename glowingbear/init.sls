@@ -69,11 +69,12 @@
     - group: root
     - dir_mode: 755
 
-irc.urlab.be:
+glowing-bear-acme:
   acme.cert:
+    - name: irc.urlab.be
     - aliases:
 {% for username, user in users.items() %}
-      - {{ username }}.irc.urlab.be
+      - {{ username|replace("_", "") }}.irc.urlab.be
 {% endfor %}
     - email: {{ acme.email }}
     - webroot: {{ acme.webroot }}
