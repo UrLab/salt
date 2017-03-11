@@ -1,7 +1,6 @@
 {% set users = pillar.get('users', {}) %}
 
 {% for username, user in users.items() %}
-{%- if user.get('irc', False) %}
 
 /etc/nginx/sites-available/relay-{{username}}:
   file.managed:
@@ -13,7 +12,7 @@
     - makedirs: True
     - context:
       port: {{60000 + user.uid}}
-      username: {{ username }}
+      username: {{ username|replace("_", "") }}
     - require:
       - pkg: nginx
     - watch_in:
@@ -30,7 +29,6 @@
       - service: nginx
 
 
-{%- endif %}
 {% endfor %}
 
 
