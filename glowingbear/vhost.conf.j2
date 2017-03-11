@@ -9,7 +9,7 @@ server {
 
     server_name irc.urlab.be;
 
-    listen 443 ssl http2;
+    listen 443 ssl;
     ssl_certificate      /etc/letsencrypt/live/irc.urlab.be/fullchain.pem;
     ssl_certificate_key  /etc/letsencrypt/live/irc.urlab.be/privkey.pem;
     include ssl-basic.include;
