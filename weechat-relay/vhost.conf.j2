@@ -10,7 +10,7 @@ upstream weechat-{{ username }} {
 limit_req_zone $binary_remote_addr zone=weechat-{{ username }}:10m rate=5r/m;
 
 server {
-    server_name {{ username }}irc.urlab.be;
+    server_name {{ username }}.irc.urlab.be;
     listen 80;
     return 301 https://$server_name$request_uri;
 }

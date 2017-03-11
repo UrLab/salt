@@ -77,4 +77,4 @@ irc.urlab.be:
 {% endfor %}
     - email: {{ acme.email }}
     - webroot: {{ acme.webroot }}
-    - renew: {{ acme.renew }}
+    - renew: True
