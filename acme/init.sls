@@ -1,4 +1,4 @@
-{% from "acme/map.jinja" import acme with context %}
+{% from "acme/config.yaml" import acme %}
 
 acme-client-git:
   git.latest:

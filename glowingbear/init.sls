@@ -1,4 +1,6 @@
 {% set users = pillar.get('users', {}) %}
+{% from "acme/config.yaml" import acme %}
+
 
 /usr/share/nginx/default_irc/index.html:
   file.managed:
@@ -67,7 +69,6 @@
     - user: root
     - group: root
     - dir_mode: 755
-{% from "acme/map.jinja" import acme with context %}
 
 irc.urlab.be:
   acme.cert:
