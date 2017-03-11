@@ -30,15 +30,6 @@ irc_weechat_pkg:
     - mode: 700
     - replace: False
 
-# Isn't it better to let the user install the cron himself with a nice script ?
-# See /bin/install-irc-reboot
-# /home/{{ username }}/irc_startup.sh_cron:
-#   cron.present:
-#     - name: /home/{{ username }}/.irc_startup.sh
-#     - identifier: IRC_STARTUP
-#     - user: {{ username }}
-#     - special: '@reboot'
-
 /home/{{ username }}/.weechat:
   file.directory:
     - user: {{ username }}
@@ -54,7 +45,7 @@ irc_weechat_pkg:
     - group: {{ username }}
     - template: jinja
     - mode: 500
-    - replace: False
+    # - replace: False
     - context:
       username: {{ username }}
       nickname: {{ user.get('nickname', username) }}
