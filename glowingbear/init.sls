@@ -1,9 +1,6 @@
 {% set users = pillar.get('users', {}) %}
 {% import_yaml "acme/config.yaml" as acme %}
 
- {{ show_full_context() }}
-
-
 /usr/share/nginx/default_irc/index.html:
   file.managed:
     - source: salt://glowingbear/index.html
