@@ -12,4 +12,9 @@ server {
         alias /usr/share/nginx/glowingbear/;
         index index.html;
     }
+
+    location '/.well-known/acme-challenge' {
+        default_type "text/plain";
+        root /usr/share/nginx/acme_webroot/;
+    }
 }

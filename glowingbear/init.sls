@@ -1,3 +1,5 @@
+{% set users = pillar.get('users', {}) %}
+
 /usr/share/nginx/default_irc/index.html:
   file.managed:
     - source: salt://glowingbear/index.html
@@ -58,3 +60,20 @@
     - user: www-data
     - rev: 0.5.0
     - force_reset: True
+
+
+/usr/share/nginx/acme_webroot/:
+  file.directory:
+    - user: root
+    - group: root
+    - dir_mode: 755
+
+irc.urlab.be:
+  acme.cert:
+    - aliases:
+{% for username, user in users.items() %}
+      - {{ username }}.irc.urlab.be
+{% endfor %}
+    - email: root@urlab.be
+    - webroot: /usr/share/nginx/acme_webroot/
+    - renew: 14
