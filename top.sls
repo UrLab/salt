@@ -13,3 +13,5 @@ base:
     - acme
     - weechat-relay
     - glowingbear
+  'delight':
+    - delight
