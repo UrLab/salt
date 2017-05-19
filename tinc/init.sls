@@ -37,7 +37,7 @@ tinc:
     - group: root
     - mode: 600
 
-{%- if tinc[id]['bridge'] is defined %}
+{%- if tinc[id] is defined and tinc[id]['bridge'] is defined %}
 include:
   - .bridge
 {% endif %}
