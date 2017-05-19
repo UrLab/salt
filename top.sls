@@ -15,3 +15,5 @@ base:
     - glowingbear
   'delight':
     - delight
+  'azog':
+    - dnsmasq
