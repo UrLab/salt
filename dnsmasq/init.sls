@@ -13,6 +13,7 @@ dnsmasq_file:
   file.managed:
     - name: /etc/dnsmasq.conf
     - source: salt://dnsmasq/files/dnsmasq.conf.jinja
+    - template: jinja
     - user: root
     - group: root
     - mode: 644
