@@ -100,7 +100,7 @@ tinc-hosts-{{ hostname }}:
     - include_empty: True
     - user: root
     - group: root
-    - mode: 600
+    - mode: 700
     - config:
        id: {{ id }}
        host: {{ host }}
@@ -111,12 +111,12 @@ tinc-hosts-{{ hostname }}:
 {% if config["down"] is defined %}
 /etc/tinc/urlab/hosts/{{host}}-down:
   file.managed:
-    - source: salt://tinc/files/host-up
+    - source: salt://tinc/files/host-down
     - template: jinja
     - include_empty: True
     - user: root
     - group: root
-    - mode: 600
+    - mode: 700
     - config:
        id: {{ id }}
        host: {{ host }}
