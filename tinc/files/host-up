@@ -1,2 +1,2 @@
 
-{{ pillar['tinc'][id]['custom']['hosts'][host]['up'] }}
+{{ pillar['tinc'][config['id']]['custom']['hosts'][config['host']]['up'] }}

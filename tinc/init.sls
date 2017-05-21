@@ -90,10 +90,10 @@ tinc-hosts-{{ hostname }}:
 
 
 {% if tinc[id] is defined and tinc[id]["custom"] is defined %}
-{% for host, config in tinc[id]['custom']['hosts'].items %}
+{% for host, config in tinc[id]['custom']['hosts'].items() %}
 
 {% if config["up"] is defined %}
-/etc/tinc/urlab/hosts/{{hostname}}-up:
+/etc/tinc/urlab/hosts/{{host}}-up:
   file.managed:
     - source: salt://tinc/files/host-up
     - template: jinja
@@ -109,7 +109,7 @@ tinc-hosts-{{ hostname }}:
 {% endif %}
 
 {% if config["down"] is defined %}
-/etc/tinc/urlab/hosts/{{hostname}}-down:
+/etc/tinc/urlab/hosts/{{host}}-down:
   file.managed:
     - source: salt://tinc/files/host-up
     - template: jinja
