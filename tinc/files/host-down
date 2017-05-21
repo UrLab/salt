@@ -1,0 +1,3 @@
+
+
+{{ pillar['tinc'][id]['custom']['hosts'][host]['down'] }}
