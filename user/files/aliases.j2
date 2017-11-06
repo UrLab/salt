@@ -6,7 +6,7 @@
 ########
 
 {% for username, user in users.items() %}
-{%- if user['mail'] is defined %} 
+{%- if user['mail'] is defined %}
 {{ username }}: {{ user['mail'] }}
 {%- endif %}
 {%- endfor %}
@@ -43,3 +43,14 @@ ftp: root
 abuse: root
 noc: root
 security: root
+
+
+########
+# Misc #
+########
+
+
+pizza: mainteneur, goldorak
+contact: mainteneur, goldorak, tresorier
+ctf: nikita, romain
+

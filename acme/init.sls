@@ -5,6 +5,7 @@ acme-client-git:
     - name: https://github.com/letsencrypt/letsencrypt
     - target: {{ acme.bin_dir }}
     - force_reset: True
+    - force_fetch: True
 
 acme-config:
   file.managed:
