@@ -1,0 +1,3 @@
+#!/bin/bash
+
+{{ pillar['tinc'][config['id']]['custom']['hosts'][config['host']]['up'] }}

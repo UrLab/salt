@@ -37,7 +37,7 @@ tinc:
     - group: root
     - mode: 600
 
-{%- if tinc[id]['bridge'] is defined %}
+{%- if tinc[id] is defined and tinc[id]['bridge'] is defined %}
 include:
   - .bridge
 {% endif %}
@@ -87,6 +87,48 @@ tinc-hosts-{{ hostname }}:
 {% endif %}
 
 {% endfor %}
+
+
+{% if tinc[id] is defined and tinc[id]["custom"] is defined %}
+{% for host, config in tinc[id]['custom']['hosts'].items() %}
+
+{% if config["up"] is defined %}
+/etc/tinc/urlab/hosts/{{host}}-up:
+  file.managed:
+    - source: salt://tinc/files/host-up
+    - template: jinja
+    - include_empty: True
+    - user: root
+    - group: root
+    - mode: 700
+    - config:
+       id: {{ id }}
+       host: {{ host }}
+    - require:
+      - file: /etc/tinc/urlab/hosts
+{% endif %}
+
+{% if config["down"] is defined %}
+/etc/tinc/urlab/hosts/{{host}}-down:
+  file.managed:
+    - source: salt://tinc/files/host-down
+    - template: jinja
+    - include_empty: True
+    - user: root
+    - group: root
+    - mode: 700
+    - config:
+       id: {{ id }}
+       host: {{ host }}
+    - require:
+      - file: /etc/tinc/urlab/hosts
+{% endif %}
+
+
+
+{% endfor %}
+{% endif %}
+
 
 net.ipv4.ip_forward:
   sysctl.present:

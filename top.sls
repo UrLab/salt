@@ -13,3 +13,8 @@ base:
     - acme
     - weechat-relay
     - glowingbear
+    - oidentd
+  'delight':
+    - delight
+  'azog':
+    - dnsmasq
